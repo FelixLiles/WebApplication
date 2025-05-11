@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book shop</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">S
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+    
+    .navbar-toggler:hover
+    {
+    background-color:#ddd;
+    
+    }
+    
+    .navbar-toggler-icon:hover{
+    background-color:#555;
+    }
+	
+	  
+    
+    
+   
+    </style>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">MY BOOK SHOP</a>
+            <button class="navbar-toggler-light " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="my_books">My Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="available_books ">Available Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="book_register">Add New Book</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+   
+      <div class="container my-5 col-md-6" >
+		
+		<table class="table table-striped table-hover">
+		  <thead>
+		    <tr>
+		      <th scope="col">id</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Author</th>
+		      <th scope="col">Price</th>
+			  <th scope="col">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="b :${book}">
+		      <td th:text="${b.id}"></td>
+			  <td th:text="${b.name}"></td>
+			  <td th:text="${b.author}"></td>
+			  <td th:text="${b.price}"></td>
+			  <td><a style ="color:red" th:href="@{/deleteMyList/{id}(id=${b.id})}"><i class="fa-solid fa-trash"></i></a></td>
+			</tr>
+			  
+		  </tbody>
+		</table>
+		
+		
+	  </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
